@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+	<script type="text/javascript"></script>
+
+</head>
+
+<body>
+	<div class="image">
+		<img id="bg" src="images/back.jpg">
+	</div>
+
+	<section class="falling" id="falling">
+		<img id="man" src="images/women.png">
+		<div class="song">
+			<div class="row-left row-vertical-center">
+				<div class="col">
+					<p>Now you hear what the house
+						has to say.
+					</p>
+				</div>
+			</div>
+			<div class="row-center row-vertical-center">
+				<div class="col">
+					<p>Pipes clanking, water running in the dark,
+					</p>
+				</div>
+			</div>
+			<div class="row-right row-vertical-center">
+				<div class="col">
+					<p>the mortgaged walls shifting
+						in discomfort,
+					</p>
+				</div>
+			</div>
+			<div class="row-left row-vertical-center">
+				<div class="col">
+					<p>and voices mounting in
+						an endless drone
+					</p>
+				</div>
+			</div>
+			<div class="row-center row-vertical-center">
+				<div class="col">
+					<p>of small complaints like
+						the sounds of a family
+					</p>
+				</div>
+			</div>
+			<div class="row-right row-vertical-center">
+				<div class="col">
+					<p>that year by year you’ve learned how to ignore.
+					</p>
+				</div>
+			</div>
+			<div class="row-left row-vertical-center">
+				<div class="col">
+					<p>But now you must listen to
+						the things you own,
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="row-right row-vertical-center">
+			<div class="col">
+				<p>all that you’ve worked for these
+					past years,
+				</p>
+			</div>
+		</div>
+		</div>
+		<div class="row-left row-vertical-center">
+			<div class="col">
+				<p>the murmur of property,
+					of things in disrepair,
+				</p>
+			</div>
+		</div>
+		</div>
+		<div class="row-center row-vertical-center">
+			<div class="col">
+				<p>the moving parts about
+					to come undone,
+				</p>
+			</div>
+
+		</div>
+		<div class="row-left row-vertical-center">
+			<div class="col">
+				<p>and twisting in the sheets
+					remember all
+				</p>
+			</div>
+		</div>
+		</div>
+		<div class="row-right row-vertical-center">
+			<div class="col">
+				<p>the faces you could not bring
+					yourself to love.
+				</p>
+			</div>
+		</div>
+
+		</div>
+		<div class="row-left row-vertical-center">
+			<div class="col">
+				<p>How many voices have escaped
+					you until now,
+				</p>
+			</div>
+		</div>
+		</div>
+		<div class="row-right row-vertical-center">
+			<div class="col">
+				<p>the venting furnace, the floorboards underfoot,
+				</p>
+			</div>
+		</div>
+		</div>
+		<div class="row-left row-vertical-center">
+			<div class="col">
+				<p>the steady accusations of the clock
+				</p>
+			</div>
+		</div>
+		</div>
+		<div class="row-center row-vertical-center">
+			<div class="col">
+				<p>tnumbering the minutes
+					no one will mark.
+				</p>
+			</div>
+		</div>
+		</div>
+		<div class="row-right row-vertical-center">
+			<div class="col">
+				<p>ohe terrible clarity
+					this moment brings,
+				</p>
+			</div>
+		</div>
+		<div class="row-center row-vertical-center">
+			<div class="col">
+				<p id="useless">the useless insight,
+					the unbroken dark.</p>
+			</div>
+		</div>
+
+	</section>
+	<section class="headline" id="headline">
+            <h1 id="h1">Insomnia <br>
+            Dana Gioia</h1>
+    </section>
+	
+
+</body>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var controller = new ScrollMagic.Controller();
+
+        var tweens = new TimelineMax()
+            .add([
+                TweenMax.to("#bg", 1, { scale: 1, ease: Linear.easeNone })
+            ]);
+        var scene = new ScrollMagic.Scene({
+            triggerElement: '.falling',
+            triggerHook: 0,
+            duration: "1000%"
+        })
+            .setTween(tweens)
+            .addTo(controller)
+
+        var manScene = new ScrollMagic.Scene({
+            triggerElement: '.song',
+            triggerHook: 0,
+            duration: "1600%"
+        })
+            .setTween(TweenMax.to("#man", 1, { y: "110%", ease: Linear.easeNone }))
+            .addTo(controller)
+
+
+
+		var end = new ScrollMagic.Scene({
+		  triggerElement: '#useless',
+		  triggerHook: 0,
+		  duration: "100%"
+		})
+
+		.setTween(TweenMax.to("#bg", 1, { className: '+=animate', ease: Linear.easeNone }))
+		.addTo(controller);
+
+
+		var title = new ScrollMagic.Scene({
+		  triggerElement: '#headline',
+		  triggerHook: 1,
+		  duration: "100%"
+		})
+
+		.setTween(TweenMax.to("#h1", 1, { right: "0", ease: Linear.easeOut }))
+		.addTo(controller);  
+    });
+</script>
